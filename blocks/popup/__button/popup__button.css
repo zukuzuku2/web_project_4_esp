@@ -1,9 +1,16 @@
 .popup__button {
   width: 238px;
   height: 46px;
-  background: #000000;
   border-radius: 2px;
+  background-color: #000000;
+  transition: opacity 0.5s linear;
 }
+
+.popup__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 @media screen and (min-width: 1280px) {
   .popup__button {
     width: 358px;

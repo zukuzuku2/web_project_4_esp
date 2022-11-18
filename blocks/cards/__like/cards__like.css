@@ -1,2 +1,7 @@
 .cards__like {
+  transition: opacity 0.5s linear;
+}
+.cards__like:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }

@@ -1,16 +1,22 @@
 # Proyecto 4: Alrededor de los Estados Unidos
 
-### Descripción general
+**Introducción**
 
-* Figma
-* Imágenes
+Proyecto enfocado a la creacion de una red social o algo parecido utilizando los softwares, metodologias, tegnologias y lenguajes enmarcados en la descripción del MD
 
-**Figma**
+**Enlace al proyecto en GitHub Pages**
 
-* [Enlace al proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
+- [De patria a patria](https://zukuzuku2.github.io/web_project_3_esp/)
 
-**Imágenes**
-
-A la hora de trabajar, debes optar por exportar las imágenes directamente desde Figma; te recomendamos hacerlo para practicar más. No olvides optimizarlas [aquí](https://tinypng.com/), para que tu proyecto cargue más rápido. 
-
-¡Esperamos que te diviertas con JavaScript!
+  ##Tecnologías utilizadas
+  Metodologia BEM
+  HTML
+  CSS
+  JavaScript
+  Rutas de Archivos y organizacion de archivos BEM
+  GIT
+  Flexbox
+  Posicionamiento de elementos
+  Animaciones
+  Diseño Adaptativo
+  Figma
