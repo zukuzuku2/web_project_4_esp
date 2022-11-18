@@ -6,9 +6,10 @@ Proyecto enfocado a la creacion de una red social o algo parecido utilizando los
 
 **Enlace al proyecto en GitHub Pages**
 
-- [De patria a patria](https://zukuzuku2.github.io/web_project_3_esp/)
+- [Alrededor de los Estados Unidos](https://zukuzuku2.github.io/web_project_4_esp/)
 
   ##Tecnologías utilizadas
+
   Metodologia BEM
   HTML
   CSS
