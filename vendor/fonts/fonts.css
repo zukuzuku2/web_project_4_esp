@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  src: url(./Inter-Bold.woff) format("woff"),
+    url(./Inter-Bold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: italic;
+  src: url(./Inter-Italic.woff) format("woff"),
+    url(./Inter-Italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  src: url(./Inter-Regular.woff) format("woff"),
+    url(./Inter-Regular.woff2) format("woff2");
+}

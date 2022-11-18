@@ -1,4 +1,4 @@
-.profile__skills {
+.popup__button-text {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
@@ -7,13 +7,9 @@
   text-align: center;
   color: #ffffff;
 }
-
-@media screen and (min-width: 768px) {
-}
 @media screen and (min-width: 1280px) {
-  .profile__skills {
+  .popup__button-text {
     font-size: 18px;
     line-height: 22px;
-    align-self: flex-start;
   }
 }
