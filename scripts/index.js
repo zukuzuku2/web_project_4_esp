@@ -1,12 +1,12 @@
-content = document.querySelector(".content");
-editButton = content.querySelector(".profile__edit");
-popup = content.querySelector(".popup");
-closeButton = content.querySelector(".popup__close");
-profile__name = content.querySelector(".profile__name");
-profile__skills = content.querySelector(".profile__skills");
-popup__name = content.querySelector(".popup__name");
-popup__skills = content.querySelector(".popup__skills");
-popup__button = content.querySelector(".popup__button");
+const content = document.querySelector(".content");
+const editButton = content.querySelector(".profile__edit");
+const popup = content.querySelector(".popup");
+const closeButton = content.querySelector(".popup__close");
+const profile__name = content.querySelector(".profile__name");
+const profile__skills = content.querySelector(".profile__skills");
+const popup__name = content.querySelector(".popup__name");
+const popup__skills = content.querySelector(".popup__skills");
+const popup__button = content.querySelector(".popup__button");
 
 function mostrarPopup() {
   popup.classList.remove("hidden");
