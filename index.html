@@ -57,29 +57,31 @@
         </svg>
       </header>
       <main class="content">
-        <div class="popup hidden">
-          <form class="popup__container">
-            <img
-              src="./images/closeIcon.svg"
-              alt="Boton parqa cerrar el modal o popup"
-              class="popup__close" />
-            <h5 class="popup__title">Editar perfil</h5>
-            <div class="popup__user-info">
-              <input
-                type="text"
-                placeholder="Inserte su Nombre"
-                class="popup__name" />
-              <input
-                type="text"
-                placeholder="Inserte su Skill"
-                class="popup__skills" />
-            </div>
-            <button class="popup__button">
-              <p class="popup__button-text">Guardar</p>
-            </button>
-          </form>
-          <div class="overlay"></div>
-        </div>
+        <template id="popup-template">
+          <div class="popup">
+            <form class="popup__container">
+              <img
+                src="./images/closeIcon.svg"
+                alt="Boton parqa cerrar el modal o popup"
+                class="popup__close" />
+              <h5 class="popup__title">Editar perfil</h5>
+              <div class="popup__user-info">
+                <input
+                  type="text"
+                  placeholder="Inserte su Nombre"
+                  class="popup__name" />
+                <input
+                  type="text"
+                  placeholder="Inserte su Skill"
+                  class="popup__skills" />
+              </div>
+              <button class="popup__button" type="submit">
+                <p class="popup__button-text">Guardar</p>
+              </button>
+            </form>
+            <div class="overlay"></div>
+          </div>
+        </template>
 
         <section class="profile">
           <img
@@ -103,85 +105,23 @@
           </div>
         </section>
         <section class="elements">
-          <article class="cards">
-            <img
-              src="./images/yosemite valley.jpg"
-              alt="Imagen del valle Yosemite"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Valle de Yosemite</h4>
-              <!-- reemplazar el src -->
+          <template id="card-template">
+            <article class="cards">
               <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
-          <article class="cards">
-            <img
-              src="./images/lake lousie.png"
-              alt="Imagen del Lago Louise"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Lago Louise</h4>
-              <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
-          <article class="cards">
-            <img
-              src="./images/bald mountains.png"
-              alt="Imagen de las Montañas Calvas"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Montañas Calvas</h4>
-              <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
-          <article class="cards">
-            <img
-              src="./images/latemar.png"
-              alt="Imagen de Latemar"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Latemar</h4>
-              <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
-          <article class="cards">
-            <img
-              src="./images/Vanoise National Park.png"
-              alt="Imagen de Vanoise National Park"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Vanoise National Park</h4>
-              <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
-          <article class="cards">
-            <img
-              src="./images/Lago di Braies.png"
-              alt="Imagen de Lago di Braies"
-              class="cards__image" />
-            <div class="cards__info-container">
-              <h4 class="cards__title">Lago di Braies</h4>
-              <img
-                src="./images/heart.svg"
-                alt="Boton de reaccion de me gusta de la cards"
-                class="cards__like" />
-            </div>
-          </article>
+                src="./images/yosemite valley.jpg"
+                alt="Imagen del valle Yosemite"
+                class="cards__image" />
+              <div class="cards__info-container">
+                <h4 class="cards__title"></h4>
+                <!-- reemplazar el src -->
+                <img
+                  src="./images/heart.svg"
+                  alt="Boton de reaccion de me gusta de la cards"
+                  class="cards__like"
+                  id="cards__like" />
+              </div>
+            </article>
+          </template>
         </section>
       </main>
       <footer class="footer">
