@@ -40,7 +40,7 @@ const popup__skills = popup.querySelector(".popup__skills");
 const popup__button = popup.querySelector(".popup__button");
 const profile = document.querySelector(".profile");
 const buttonProfile = profile.querySelector(".button");
-
+let cardLike = {};
 /* Constantes y variables */
 
 /* Funciones */
@@ -59,7 +59,18 @@ function crearCard(argumento) {
   cardTitle.textContent = argumento.name;
   image.setAttribute("src", argumento.link);
   image.setAttribute("alt", "Imagen del " + argumento.name);
+
+  card.querySelector(".cards__like").addEventListener("click", (evt) => {
+    //console.log(item, count);
+    if (evt.target.getAttribute("src").includes("heartBlack")) {
+      evt.target.setAttribute("src", "../images/heart.svg");
+    } else {
+      evt.target.setAttribute("src", "../images/heartBlack.png");
+    }
+  });
+
   elements.append(card);
+  cardLike = elements.querySelectorAll("#cards__like");
 }
 function crearCardAlPrincipio(argumento) {
   const cardTemplate = document.querySelector("#card-template").content;
@@ -68,7 +79,16 @@ function crearCardAlPrincipio(argumento) {
   const cardTitle = card.querySelector(".cards__title");
   cardTitle.textContent = argumento.name;
   image.setAttribute("src", argumento.link);
+  card.querySelector(".cards__like").addEventListener("click", (evt) => {
+    //console.log(item, count);
+    if (evt.target.getAttribute("src").includes("heartBlack")) {
+      evt.target.setAttribute("src", "../images/heart.svg");
+    } else {
+      evt.target.setAttribute("src", "../images/heartBlack.png");
+    }
+  });
   elements.prepend(card);
+  cardLike = elements.querySelectorAll("#cards__like");
 }
 
 function popupInsertarCard() {
@@ -108,9 +128,7 @@ function guardarInfo(evt) {
 
 /* Eventos */
 
-window.addEventListener("load", ciclarCards(initialCards));
-// const cardGlobal = elements.querySelectorAll(".cards");
-const cardLike = elements.querySelectorAll("#cards__like");
+ciclarCards(initialCards);
 
 editButton.addEventListener("click", () => {
   mostrarPopup();
@@ -121,6 +139,7 @@ popup__button.addEventListener("click", (evt) => {
   if (popup__title.textContent.includes("Nuevo Lugar")) {
     cerrarPopupX();
     guardarInfoCard(evt);
+    return cardLike;
   } else {
     cerrarPopupX();
     guardarInfo(evt);
@@ -132,15 +151,20 @@ buttonProfile.addEventListener("click", () => {
   popupInsertarCard();
 });
 
+/*¨
+
 cardLike.forEach((item, count) => {
   cardLike[count].addEventListener("click", (evt) => {
+    console.log(item, count);
     if (evt.target.getAttribute("src").includes("heartBlack")) {
       evt.target.setAttribute("src", "../images/heart.svg");
-      return console.log(elements.querySelectorAll("#cards__like"));
     } else {
       evt.target.setAttribute("src", "../images/heartBlack.png");
     }
+    cardLike = elements.querySelectorAll("#cards__like");
+    console.log("Llego aquí");
+    return cardLike;
   });
 });
-
+*/
 /* Eventos */

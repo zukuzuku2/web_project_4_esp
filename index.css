@@ -32,6 +32,7 @@
 @import url(./blocks/elements/elements.css);
 @import url(./blocks/cards/cards.css);
 @import url(./blocks/cards/__image/cards__image.css);
+@import url(./blocks/cards/__delete/cards__delete.css);
 @import url(./blocks/cards/__like/cards__like.css);
 @import url(./blocks/cards/__title/cards__title.css);
 @import url(./blocks/cards/__info-container/cards__info-container.css);
