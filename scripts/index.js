@@ -1,3 +1,7 @@
+/**
+ * Genericas
+ */
+let tipoDeGuardado = false;
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -24,10 +28,6 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
-/**
- * Genericas
- */
-let tipoDeGuardado = false;
 /**
  * Contenido Gneral de la pagina
  */
@@ -68,6 +68,10 @@ const popupPlace = content.querySelector(".popup-place");
 const popupPlace__image = popupPlace.querySelector(".popup-place__image");
 const popupPlace__text = popupPlace.querySelector(".popup-place__text");
 const popupPlace__close = popupPlace.querySelector(".popup-place__close");
+
+/**
+ *Funciones
+ */
 
 function insertarCards(arregloDeDatos, tipoDeGuardado) {
   const card__template = document.querySelector(".card-template").content;
@@ -123,6 +127,10 @@ function guardarInfo(evt) {
 }
 
 ciclarCards(initialCards);
+
+/**
+ * Eventos
+ */
 
 editButton.addEventListener("click", mostrarPopup);
 closeButton.addEventListener("click", cerrarPopupX);
