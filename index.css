@@ -50,6 +50,7 @@
 @import url(./blocks/cards/cards.css);
 @import url(./blocks/cards/__image/cards__image.css);
 @import url(./blocks/cards/__delete/cards__delete.css);
+@import url(./blocks/cards/__delete-image/cards__delete-image.css);
 @import url(./blocks/cards/__like/cards__like.css);
 @import url(./blocks/cards/__like-image/cards__like-image.css);
 @import url(./blocks/cards/__title/cards__title.css);

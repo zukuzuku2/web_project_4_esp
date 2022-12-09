@@ -5,6 +5,8 @@
   transition: opacity 0.5s linear;
   background-color: transparent;
   border: 0;
+  width: 18px;
+  height: 19.3px;
 }
 
 .cards__delete:hover {
