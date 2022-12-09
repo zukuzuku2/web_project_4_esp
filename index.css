@@ -51,6 +51,7 @@
 @import url(./blocks/cards/__image/cards__image.css);
 @import url(./blocks/cards/__delete/cards__delete.css);
 @import url(./blocks/cards/__like/cards__like.css);
+@import url(./blocks/cards/__like-image/cards__like-image.css);
 @import url(./blocks/cards/__title/cards__title.css);
 @import url(./blocks/cards/__info-container/cards__info-container.css);
 @import url(./blocks/footer/footer.css);

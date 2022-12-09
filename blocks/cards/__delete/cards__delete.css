@@ -2,6 +2,9 @@
   position: absolute;
   top: 18px;
   right: 15px;
+  transition: opacity 0.5s linear;
+  background-color: transparent;
+  border: 0;
 }
 
 .cards__delete:hover {

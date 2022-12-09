@@ -80,11 +80,13 @@ function insertarCards(arregloDeDatos, tipoDeGuardado) {
   const card__title = cards.querySelector(".cards__title");
   card__image.setAttribute("src", arregloDeDatos.link);
   card__title.textContent = arregloDeDatos.name;
-  cards.querySelector(".cards__like").addEventListener("click", (evt) => {
-    evt.target.getAttribute("src").includes("blackHeart")
-      ? evt.target.setAttribute("src", "../images/heart.svg")
-      : evt.target.setAttribute("src", "../images/blackHeart.png");
-  });
+  cards
+    .querySelector(".cards__like")
+    .firstElementChild.addEventListener("click", (evt) => {
+      evt.target.getAttribute("src").includes("blackHeart")
+        ? evt.target.setAttribute("src", "../images/heart.svg")
+        : evt.target.setAttribute("src", "../images/blackHeart.png");
+    });
   cards.querySelector(".cards__delete").addEventListener("click", (evt) => {
     cards.remove(evt.target);
   });
