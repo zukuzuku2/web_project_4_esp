@@ -84,8 +84,8 @@ function insertarCards(arregloDeDatos, tipoDeGuardado) {
     .querySelector(".cards__like")
     .firstElementChild.addEventListener("click", (evt) => {
       evt.target.getAttribute("src").includes("blackHeart")
-        ? evt.target.setAttribute("src", "../images/heart.svg")
-        : evt.target.setAttribute("src", "../images/blackHeart.png");
+        ? evt.target.setAttribute("src", "./images/heart.svg")
+        : evt.target.setAttribute("src", "./images/blackHeart.png");
     });
   cards.querySelector(".cards__delete").addEventListener("click", (evt) => {
     cards.remove(evt.target);
