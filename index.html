@@ -17,76 +17,102 @@
         />
       </header>
       <main class="content">
-        <div class="popup-place">
-          <div class="popup-place__container">
+        <div class="popup">
+          <form class="form form-image">
             <img
               src="./images/closeIcon.svg"
               alt="Boton parqa cerrar el modal o popup"
-              class="popup-place__close"
+              class="form__close form__close-image"
             />
             <img
               src="https://code.s3.yandex.net/web-code/latemar.jpg"
               alt="imagen de un lugar de estados unidos"
-              class="popup-place__image"
+              class="form__image"
             />
-            <h4 class="popup-place__text">
+            <h4 class="form__text">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit
               veritatis quae animi, commodi esse asperiores totam assumenda
               maiores porro tempora sequi rem laudantium dignissimos neque
               deserunt molestias, ratione ipsam veniam!
             </h4>
-          </div>
+          </form>
           <div class="overlay"></div>
         </div>
         <div class="popup">
-          <form class="popup__container">
+          <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
-              alt="Boton parqa cerrar el modal o popup"
-              class="popup__close"
+              alt="Boton para cerrar el modal o popup"
+              class="form__close"
+              id="form-close-refres-profile"
             />
-            <h5 class="popup__title">Editar perfil</h5>
-            <div class="popup__user-info">
+            <h5 class="form__title">Editar perfil</h5>
+            <div class="form__user-info">
               <input
                 type="text"
                 placeholder="Inserte su Nombre"
-                class="popup__name"
+                class="form__input"
+                id="form-name"
+                minlength="2"
+                maxlength="40"
+                required
               />
+              <span class="form-name-error form__input-error"
+                >Este campo es obligatorio</span
+              >
               <input
                 type="text"
                 placeholder="Inserte su Skill"
-                class="popup__skills"
+                class="form__input"
+                id="form-skills"
+                minlength="2"
+                maxlength="200"
+                required
               />
+              <span class="form-skills-error form__input-error"
+                >Este campo es obligatorio</span
+              >
             </div>
-            <button class="popup__button">
-              <p class="popup__button-text">Guardar</p>
+            <button class="form__submit" type="submit">
+              <p class="form__submit-text">Guardar</p>
             </button>
           </form>
           <div class="overlay"></div>
         </div>
-
-        <div class="popup-cards">
-          <form class="popup-cards__container">
+        <div class="popup">
+          <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
               alt="Boton parqa cerrar el modal o popup"
-              class="popup-cards__close"
+              class="form__close"
             />
-            <h5 class="popup-cards__title">Nuevo lugar</h5>
-            <div class="popup-cards__user-info">
+            <h5 class="form__title">Nuevo lugar</h5>
+            <div class="form__user-info">
               <input
                 type="text"
                 placeholder="Título"
-                class="popup-cards__name"
+                class="form__input"
+                id="form-title"
+                minlength="2"
+                maxlength="30"
+                required
               />
+              <span class="form-title-error form__input-error"
+                >Este campo es obligatorio</span
+              >
               <input
-                type="text"
+                type="url"
                 placeholder="Enlace a la imagen"
-                class="popup-cards__skills"
+                class="form__input"
+                id="form-link"
+                required
               />
+              <span class="form-link-error form__input-error"
+                >Este campo es obligatorio</span
+              >
             </div>
-            <button class="popup-cards__button">
-              <p class="popup-cards__button-text">Crear</p>
+            <button class="form__submit form__submit-crear" type="submit">
+              <p class="form__submit-text">Crear</p>
             </button>
           </form>
           <div class="overlay"></div>
@@ -149,5 +175,6 @@
       </footer>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
