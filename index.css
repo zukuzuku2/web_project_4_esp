@@ -32,6 +32,8 @@
 @import url(./blocks/form/__user-info/form__user-info.css);
 @import url(./blocks/form/__submit/form__submit.css);
 @import url(./blocks/form/__submit-text/form__submit-text.css);
+@import url(./blocks/form/-name/-error/form-name-error.css);
+@import url(./blocks/form/-title/-error/form-title-error.css);
 @import url(./blocks/button/_inactive/button_inactive.css);
 
 @import url(./blocks/popup/popup.css);
