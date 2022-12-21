@@ -32,6 +32,7 @@
 @import url(./blocks/form/__user-info/form__user-info.css);
 @import url(./blocks/form/__submit/form__submit.css);
 @import url(./blocks/form/__submit-text/form__submit-text.css);
+@import url(./blocks/button/_inactive/button_inactive.css);
 
 @import url(./blocks/popup/popup.css);
 
@@ -48,33 +49,6 @@
 @import url(./blocks/cards/__info-container/cards__info-container.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
-
-/* .popups__containers {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 1s, opacity 0.5s linear;
-} */
-
-.button_inactive {
-  color: #b8b8b8;
-  background: #ededed;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
 * {
   margin: 0;

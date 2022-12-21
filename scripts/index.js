@@ -33,9 +33,7 @@ const initialCards = [
  */
 const content = document.querySelector(".content");
 const popups = Array.from(content.querySelectorAll(".popup"));
-/**
- * Popup Editar Perfil
- */
+
 /**
  * Section Editar Perfil
  */
@@ -48,22 +46,6 @@ const button__Profile = profile.querySelector(".button");
  * Section Elements
  */
 const elements = content.querySelector(".elements");
-/**
- * Popup insertar cards
- */
-// const popupCards = content.querySelector(".popup-cards");
-// const button__popupCards = popupCards.querySelector(".form__submit");
-// const popupCards__close = popupCards.querySelector(".form__close");
-// const popupCards__name = popupCards.querySelector("#form-card-name");
-// const popupCards__skills = popupCards.querySelector("#form-cards-skills");
-
-/**
- * Popup Mostrar imagen ampliada
- */
-// const popupPlace = content.querySelector(".popup-place");
-// const popupPlace__image = popupPlace.querySelector(".popup-place__image");
-// const popupPlace__text = popupPlace.querySelector(".popup-place__text");
-// const popupPlace__close = popupPlace.querySelector(".popup-place__close");
 
 /**
  *Funciones
@@ -108,12 +90,34 @@ function ciclarCards(objetoDeDatos) {
   });
 }
 
+function cerrarPopupsConTeclaYClickFueraDelModal() {
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      Array.from(document.querySelectorAll(".popup")).forEach(
+        (popupElement) => {
+          popupElement.classList.remove("hidden");
+        }
+      );
+    }
+  });
+  document.addEventListener("click", (evt) => {
+    if (evt.target.className === "overlay") {
+      Array.from(document.querySelectorAll(".popup")).forEach(
+        (popupElement) => {
+          popupElement.classList.remove("hidden");
+        }
+      );
+    }
+  });
+}
+
 function mostrarPopup() {
   popups[1].classList.add("hidden");
   const popup__name = content.querySelector("#form-name");
   const popup__skills = content.querySelector("#form-skills");
   popup__name.value = profile__name.textContent;
   popup__skills.value = profile__skills.textContent;
+  cerrarPopupsConTeclaYClickFueraDelModal();
 }
 
 function cerrarPopups() {
@@ -130,7 +134,6 @@ function cerrarPopups() {
     });
     popupElement.addEventListener("submit", (evt) => {
       evt.preventDefault;
-      console.log(evt.target.lastElementChild.classList);
       if (
         evt.target.lastElementChild.classList.contains("form__submit-crear")
       ) {
