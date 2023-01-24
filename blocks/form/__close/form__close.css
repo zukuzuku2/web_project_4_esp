@@ -5,6 +5,7 @@
   top: -32px;
   right: 0;
   transition: opacity 0.5s linear;
+  z-index: 1;
 }
 
 .form__close:hover {

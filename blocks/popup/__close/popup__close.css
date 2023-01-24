@@ -1,21 +1,22 @@
-.form__close-image {
-  width: 26px;
-  height: 26px;
+.popup__close {
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: -32px;
-  right: 0;
+  right: -32px;
   transition: opacity 0.5s linear;
+  z-index: 1;
 }
 
-.form__close-image:hover {
+.popup__close:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 @media screen and (min-width: 1280px) {
-  .form__close-image {
+  .popup__close {
     width: 40px;
     height: 40px;
-    top: -10px;
-    right: -10px;
+    top: -45px;
+    right: -45px;
   }
 }

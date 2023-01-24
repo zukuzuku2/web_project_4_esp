@@ -2,7 +2,7 @@
 
 **Introducción**
 
-Proyecto enfocado a la creacion de una red social o algo parecido utilizando los softwares, metodologias, tegnologias y lenguajes enmarcados en la descripción del MD
+Proyecto enfocado a la creacion de una red social o algo parecido utilizando los softwares, metodologias, tecnologias y lenguajes enmarcados en la descripción del MD
 
 **Enlace al proyecto en GitHub Pages**
 
