@@ -2,7 +2,6 @@ import { FormValidator } from "./FormValidator.js";
 import {
   initialCards,
   elements,
-  evtEditarPerfil,
   evtOpenModalAgregarCard,
   evtClosePopus,
   cerrarPopupsConTeclaYClickFueraDelModal,
@@ -10,20 +9,24 @@ import {
   evtAgregarCard,
 } from "./utils.js";
 import { Card } from "./Card.js";
+import { Section } from "./Section.js";
 
-initialCards.forEach((element) => {
-  const card = new Card(element, ".card-template");
-  elements.append(card.setCompleteCard());
-});
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, ".card-template");
+      const completeCard = card.setCompleteCard();
+      console.log(completeCard);
+      section.addItem(completeCard);
+    },
+  },
+  elements
+);
+section.renderItems();
 
 const validator = new FormValidator(selectors);
-Array.from(document.querySelectorAll(".form")).forEach((elemento) => {
-  elemento.addEventListener("input", (evt) => {
-    validator.enableValidation();
-  });
-});
 validator.enableValidation();
-evtEditarPerfil();
 evtOpenModalAgregarCard();
 evtClosePopus();
 cerrarPopupsConTeclaYClickFueraDelModal();

@@ -35,17 +35,6 @@ export class FormValidator {
     }
   }
 
-  twiceFunctions(
-    formElement,
-    inputElement,
-    inputList,
-    buttonElement,
-    selectors
-  ) {
-    this._checkInputValidity(formElement, inputElement, selectors);
-    this._toggleButtonState(inputList, buttonElement, selectors);
-  }
-
   _setEventListeners(formElement, selectors) {
     const inputList = Array.from(
       formElement.querySelectorAll(selectors.inputSelector)
@@ -56,16 +45,10 @@ export class FormValidator {
     this._toggleButtonState(inputList, buttonElement, this._selectors);
 
     inputList.forEach((inputElement) => {
-      inputElement.addEventListener(
-        "input",
-        this.twiceFunctions(
-          formElement,
-          inputElement,
-          inputList,
-          buttonElement,
-          selectors
-        )
-      );
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(formElement, inputElement, selectors);
+        this._toggleButtonState(inputList, buttonElement, selectors);
+      });
     });
   }
 

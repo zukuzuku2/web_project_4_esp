@@ -1,5 +1,5 @@
+import { PopupWithImage } from "./Popup.js";
 import { popups } from "./utils.js";
-
 export class Card {
   constructor(data, selector) {
     this.name = data.name;
@@ -31,7 +31,8 @@ export class Card {
     this.element
       .querySelector(".cards__image")
       .addEventListener("click", (evt) => {
-        this._eventPopupImage(evt);
+        const popupWithImage = new PopupWithImage(popups, 0);
+        popupWithImage.open(evt);
       });
   }
 
@@ -43,16 +44,6 @@ export class Card {
 
   _eventDeleteCard() {
     this.element.remove();
-  }
-
-  _eventPopupImage(evt) {
-    popups[0].classList.add("hidden");
-    popups[0].firstElementChild.firstElementChild.nextElementSibling.setAttribute(
-      "src",
-      evt.target.getAttribute("src")
-    );
-    popups[0].firstElementChild.lastElementChild.textContent =
-      evt.target.nextElementSibling.textContent;
   }
 
   setCompleteCard() {

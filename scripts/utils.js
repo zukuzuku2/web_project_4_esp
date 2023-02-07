@@ -1,4 +1,5 @@
 import { Card } from "./Card.js";
+import { PopupWithForm } from "./Popup.js";
 
 export const initialCards = [
   {
@@ -38,8 +39,10 @@ export const selectors = {
 /**
  * Contenido Gneral de la pagina
  */
-const content = document.querySelector(".content");
-const close__Popus = Array.from(content.querySelectorAll(".form__close"));
+export const content = document.querySelector(".content");
+export const close__Popus = Array.from(
+  content.querySelectorAll(".form__close")
+);
 export const popups = Array.from(content.querySelectorAll(".popup"));
 export const elements = content.querySelector(".elements");
 
@@ -62,16 +65,24 @@ function closePopup() {
   });
 }
 
-export function evtEditarPerfil() {
-  editButton.addEventListener("click", (evt) => {
-    const popup__name = content.querySelector(`#form-name`);
-    const popup__skills = content.querySelector(`#form-skills`);
-    popup__name.value = profile__name.textContent;
-    popup__skills.value = profile__skills.textContent;
-    openPopus(1);
-    evtmodificarPerfilBtn();
-  });
-}
+// export function evtEditarPerfil() {
+//   editButton.addEventListener("click", (evt) => {
+//     const popup__name = content.querySelector(`#form-name`);
+//     const popup__skills = content.querySelector(`#form-skills`);
+//     popup__name.value = profile__name.textContent;
+//     popup__skills.value = profile__skills.textContent;
+//     openPopus(1);
+//     evtmodificarPerfilBtn();
+//   });
+// }
+
+editButton.addEventListener("click", (evt) => {
+  const popup = new PopupWithForm((evt) => {
+    return popups[0];
+  }, 1);
+  popup.open();
+  popup.setEventListeners();
+});
 
 export function evtOpenModalAgregarCard() {
   button__Profile.addEventListener("click", (evt) => {
