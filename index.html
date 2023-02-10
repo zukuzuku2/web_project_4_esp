@@ -17,7 +17,7 @@
         />
       </header>
       <main class="content">
-        <div class="popup">
+        <div class="popup popup_image">
           <article class="popup__container">
             <img
               src="./images/closeIcon.svg"
@@ -38,7 +38,7 @@
           </article>
           <div class="overlay"></div>
         </div>
-        <div class="popup">
+        <div class="popup popup_profile">
           <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
@@ -73,13 +73,13 @@
                 >Este campo es obligatorio</span
               >
             </div>
-            <button class="form__submit" type="submit">
+            <button class="form__submit form_profile" type="submit">
               <p class="form__submit-text">Guardar</p>
             </button>
           </form>
           <div class="overlay"></div>
         </div>
-        <div class="popup">
+        <div class="popup popup_add-card">
           <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
@@ -111,7 +111,7 @@
                 >Este campo es obligatorio</span
               >
             </div>
-            <button class="form__submit form__submit-crear" type="submit">
+            <button class="form__submit form_add-card" type="submit">
               <p class="form__submit-text">Crear</p>
             </button>
           </form>
@@ -174,6 +174,6 @@
         <p class="footer__copyright">&copy; 2022 Alrededor de los EEUU</p>
       </footer>
     </div>
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="./pages/index.js" type="module"></script>
   </body>
 </html>

@@ -1,10 +1,11 @@
 import { PopupWithImage } from "./Popup.js";
-import { popups } from "./utils.js";
+import { popups, content } from "../utils/constants.js";
 export class Card {
-  constructor(data, selector) {
+  constructor(data, selector, callback) {
     this.name = data.name;
     this.link = data.link;
     this.selector = selector;
+    this._callback = callback;
   }
 
   _getTemplate() {
@@ -31,8 +32,7 @@ export class Card {
     this.element
       .querySelector(".cards__image")
       .addEventListener("click", (evt) => {
-        const popupWithImage = new PopupWithImage(popups, 0);
-        popupWithImage.open(evt);
+        this._callback(evt);
       });
   }
 
