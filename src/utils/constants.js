@@ -48,12 +48,14 @@ export const elements = content.querySelector(".elements");
  * Section Editar Perfil
  */
 export const profile = content.querySelector(".profile");
-export const editButton = content.querySelector(".profile__edit");
+export const editButton = content.querySelector(".profile__edit-button");
 export const profile__name = profile.querySelector(".profile__name");
 export const profile__skills = profile.querySelector(".profile__skills");
 export const button__Profile = profile.querySelector(".button");
+export const profile__Image = profile.querySelector(".profile__image");
 
 export const formProfile = content.querySelector(".form_profile");
 export const popupAddCard = content.querySelector(".popup_add-card");
 export const popupProfile = content.querySelector(".popup_profile");
 export const popup_Image = content.querySelector(".popup_image");
+export const popupsClose = Array.from(content.querySelectorAll(".form__close"));

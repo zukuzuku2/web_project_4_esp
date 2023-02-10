@@ -1,21 +1,3 @@
-import { Card } from "../components/Card.js";
-import {
-  PopupWithForm,
-  Popup,
-  UserInfo,
-  popupWithImage,
-} from "../components/Popup.js";
-import { Section } from "../components/Section.js";
-import {
-  editButton,
-  button__Profile,
-  close__Popus,
-  profile__name,
-  profile__skills,
-  content,
-  elements,
-} from "./constants.js";
-
 // export function evtEditarPerfil() {
 //   editButton.addEventListener("click", (evt) => {
 //     const popup__name = content.querySelector(`#form-name`);
@@ -26,6 +8,24 @@ import {
 //     evtmodificarPerfilBtn();
 //   });
 // }
+
+import {
+  button__Profile,
+  close__Popus,
+  content,
+  editButton,
+  elements,
+  profile__name,
+  profile__skills,
+} from "./constants.js";
+import {
+  Popup,
+  UserInfo,
+  PopupWithForm,
+  popupWithImage,
+} from "../components/Popup.js";
+import { Section } from "../components/Section.js";
+import { Card } from "../components/Card.js";
 
 editButton.addEventListener("click", (evt) => {
   const popup_Profile = content.querySelector(".popup_profile");
@@ -76,23 +76,6 @@ export function addCardPrepend(values, evt) {
   section.renderItems();
   this.close();
 }
-
-export function refreshProfile() {}
-
-// export function evtAgregarCard() {
-//   Array.from(content.querySelectorAll(".form__submit"))[1].addEventListener(
-//     "click",
-//     (evt) => {
-//       evt.preventDefault();
-//       const formTitle = document.getElementById("form-title").value;
-//       const formLink = document.getElementById("form-link").value;
-//       const data = { name: formTitle, link: formLink };
-//       const card = new Card(data, ".card-template");
-//       elements.prepend(card.setCompleteCard());
-//       closePopup();
-//     }
-//   );
-// }
 
 export function evtmodificarPerfilBtn() {
   Array.from(content.querySelectorAll(".form__submit"))[0].addEventListener(

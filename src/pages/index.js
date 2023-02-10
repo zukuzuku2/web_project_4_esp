@@ -1,3 +1,7 @@
+import "../index.css";
+import profileSrc from "../images/profile__image.png";
+import profileEditSrc from "../images/editButton.png";
+import popupClose from "../images/closeIcon.svg";
 import { FormValidator } from "../components/FormValidator.js";
 import {
   initialCards,
@@ -5,11 +9,21 @@ import {
   selectors,
   popupAddCard,
   popupProfile,
+  profile__Image,
+  editButton,
+  delete__Card,
+  popupsClose,
 } from "../utils/constants.js";
 import { addCardPrepend, handleCardClick } from "../utils/utils.js";
 import { Card } from "../components/Card.js";
 import { Section } from "../components/Section.js";
 import { PopupWithForm, userInfo, UserInfo } from "../components/Popup.js";
+
+profile__Image.src = profileSrc;
+editButton.src = profileEditSrc;
+popupsClose.forEach((close) => {
+  close.src = popupClose;
+});
 
 const section = new Section(
   {

@@ -1,5 +1,7 @@
-import { PopupWithImage } from "./Popup.js";
-import { popups, content } from "../utils/constants.js";
+import heartSrc from "../images/heart.svg";
+import blackHeartSrc from "../images/blackHeart.png";
+import deleteCardSrc from "../images/delete.svg";
+let marca = 0;
 export class Card {
   constructor(data, selector, callback) {
     this.name = data.name;
@@ -13,6 +15,8 @@ export class Card {
       .querySelector(this.selector)
       .content.querySelector(".cards")
       .cloneNode(true);
+    cardElement.querySelector(".cards__like-image").src = heartSrc;
+    cardElement.querySelector(".cards__delete-image").src = deleteCardSrc;
     return cardElement;
   }
 
@@ -37,9 +41,13 @@ export class Card {
   }
 
   _eventStatusHeart(evt) {
-    evt.target.getAttribute("src").includes("blackHeart")
-      ? evt.target.setAttribute("src", "./images/heart.svg")
-      : evt.target.setAttribute("src", "./images/blackHeart.png");
+    if (marca === 0) {
+      evt.target.setAttribute("src", blackHeartSrc);
+      marca = 1;
+    } else {
+      evt.target.setAttribute("src", heartSrc);
+      marca = 0;
+    }
   }
 
   _eventDeleteCard() {

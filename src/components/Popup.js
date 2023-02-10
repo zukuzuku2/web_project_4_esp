@@ -10,6 +10,7 @@ export class Popup {
 
   open() {
     this._popupSelector.classList.add("hidden");
+    this._handleEscClose();
   }
 
   close() {
