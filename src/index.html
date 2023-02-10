@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css" />
+    <!-- <link rel="stylesheet" href="./index.css" /> -->
     <title>Alrededor de los Estados Unidos</title>
   </head>
   <body>
@@ -17,13 +17,9 @@
         />
       </header>
       <main class="content">
-        <div class="popup">
+        <div class="popup popup_image">
           <article class="popup__container">
-            <img
-              src="./images/closeIcon.svg"
-              alt="Boton parqa cerrar el modal o popup"
-              class="popup__close"
-            />
+            <img alt="Boton para cerrar el modal o popup" class="form__close" />
             <img
               src="https://code.s3.yandex.net/web-code/latemar.jpg"
               alt="imagen de un lugar de estados unidos"
@@ -38,7 +34,7 @@
           </article>
           <div class="overlay"></div>
         </div>
-        <div class="popup">
+        <div class="popup popup_profile">
           <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
@@ -73,17 +69,17 @@
                 >Este campo es obligatorio</span
               >
             </div>
-            <button class="form__submit" type="submit">
+            <button class="form__submit form_profile" type="submit">
               <p class="form__submit-text">Guardar</p>
             </button>
           </form>
           <div class="overlay"></div>
         </div>
-        <div class="popup">
+        <div class="popup popup_add-card">
           <form class="form" novalidate>
             <img
               src="./images/closeIcon.svg"
-              alt="Boton parqa cerrar el modal o popup"
+              alt="Boton parq cerrar el modal o popup"
               class="form__close"
             />
             <h5 class="form__title">Nuevo lugar</h5>
@@ -111,7 +107,7 @@
                 >Este campo es obligatorio</span
               >
             </div>
-            <button class="form__submit form__submit-crear" type="submit">
+            <button class="form__submit form_add-card" type="submit">
               <p class="form__submit-text">Crear</p>
             </button>
           </form>
@@ -119,17 +115,12 @@
         </div>
 
         <section class="profile">
-          <img
-            src="./images/profile__image.png"
-            alt="Imagen de perfil de usuario"
-            class="profile__image"
-          />
+          <img alt="Imagen de perfil de usuario" class="profile__image" />
           <div class="profile__info">
             <div class="profile__edit-container">
               <h2 class="profile__name">José Santos</h2>
               <div class="profile__edit">
                 <img
-                  src="./images/editButton.png"
                   alt="Boton para editar los datos del prefil social"
                   class="profile__edit-button"
                 />
@@ -146,7 +137,6 @@
             <article class="cards">
               <button class="cards__delete" name="eliminar">
                 <img
-                  src="./images/delete.svg"
                   alt="imagen de cesto de basura para eliminar cards"
                   class="cards__delete-image"
                 />
@@ -160,7 +150,6 @@
                 <h4 class="cards__title">Lago Louise</h4>
                 <button class="cards__like" type="button" name="Like">
                   <img
-                    src="./images/heart.svg"
                     alt="Imagen de reaccion de me gusta de la cards"
                     class="cards__like-image"
                   />
@@ -174,9 +163,6 @@
         <p class="footer__copyright">&copy; 2022 Alrededor de los EEUU</p>
       </footer>
     </div>
-    <script src="./scripts/index.js" type="module"></script>
-    <script src="./scripts/FormValidator.js" type="module"></script>
-    <script src="./scripts/utils.js" type="module"></script>
-    <script src="./scripts/Card.js" type="module"></script>
+    <!-- <script src="./pages/index.js" type="module"></script> -->
   </body>
 </html>
