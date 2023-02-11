@@ -11,13 +11,13 @@ import {
   popupProfile,
   profile__Image,
   editButton,
-  delete__Card,
   popupsClose,
 } from "../utils/constants.js";
 import { addCardPrepend, handleCardClick } from "../utils/utils.js";
 import { Card } from "../components/Card.js";
 import { Section } from "../components/Section.js";
-import { PopupWithForm, userInfo, UserInfo } from "../components/Popup.js";
+import { PopupWithForm } from "../components/PopupWithForm";
+import { userInfo } from "../components/UserInfo";
 
 profile__Image.src = profileSrc;
 editButton.src = profileEditSrc;

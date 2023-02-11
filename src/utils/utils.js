@@ -1,14 +1,3 @@
-// export function evtEditarPerfil() {
-//   editButton.addEventListener("click", (evt) => {
-//     const popup__name = content.querySelector(`#form-name`);
-//     const popup__skills = content.querySelector(`#form-skills`);
-//     popup__name.value = profile__name.textContent;
-//     popup__skills.value = profile__skills.textContent;
-//     openPopus(1);
-//     evtmodificarPerfilBtn();
-//   });
-// }
-
 import {
   button__Profile,
   close__Popus,
@@ -18,14 +7,12 @@ import {
   profile__name,
   profile__skills,
 } from "./constants.js";
-import {
-  Popup,
-  UserInfo,
-  PopupWithForm,
-  popupWithImage,
-} from "../components/Popup.js";
+import { Popup } from "../components/Popup.js";
 import { Section } from "../components/Section.js";
 import { Card } from "../components/Card.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { popupWithImage } from "../components/PopupWithImage.js";
 
 editButton.addEventListener("click", (evt) => {
   const popup_Profile = content.querySelector(".popup_profile");
@@ -66,7 +53,6 @@ export function addCardPrepend(values, evt) {
       items: data,
       renderer: (item) => {
         const card = new Card(item, ".card-template", handleCardClick);
-        console.log(item);
         const completeCard = card.setCompleteCard();
         section.addItemStart(completeCard);
       },
