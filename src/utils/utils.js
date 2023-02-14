@@ -23,21 +23,18 @@ editButton.addEventListener("click", (evt) => {
 
 button__Profile.addEventListener("click", (evt) => {
   const popup_Profile = content.querySelector(".popup_add-card");
-  const formName = document.getElementById("form-name").value;
-  const formSkill = document.getElementById("form-skills").value;
-  const user = new UserInfo({ name: formName, skills: formSkill });
   const popup = new PopupWithForm(popup_Profile, () => {});
   popup.open();
   popup.setEventListeners();
 });
 
-close__Popus.forEach((element) => {
-  element.addEventListener("click", () => {
-    const popup_Profile = content.querySelector(".popup");
-    const popup = new Popup(popup_Profile);
-    popup.close();
-  });
-});
+// close__Popus.forEach((element) => {
+//   element.addEventListener("click", () => {
+//     const popup_Profile = content.querySelector(".popup");
+//     const popup = new Popup(popup_Profile);
+//     popup.close();
+//   });
+// });
 
 export function handleCardClick(evt) {
   popupWithImage.open(evt);

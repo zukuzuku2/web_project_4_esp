@@ -43,6 +43,7 @@ export const close__Popus = Array.from(
 );
 export const popups = Array.from(content.querySelectorAll(".popup"));
 export const elements = content.querySelector(".elements");
+export const headerPic = document.querySelector(".header__pic");
 
 /**
  * Section Editar Perfil
@@ -59,3 +60,4 @@ export const popupAddCard = content.querySelector(".popup_add-card");
 export const popupProfile = content.querySelector(".popup_profile");
 export const popup_Image = content.querySelector(".popup_image");
 export const popupsClose = Array.from(content.querySelectorAll(".form__close"));
+export const popupImageClose = content.querySelector(".popup__close");
