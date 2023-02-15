@@ -1,11 +1,13 @@
 import {
   button__Profile,
-  close__Popus,
+  popupImageClose,
   content,
   editButton,
   elements,
   profile__name,
   profile__skills,
+  formName,
+  formSkills,
 } from "./constants.js";
 import { Popup } from "../components/Popup.js";
 import { Section } from "../components/Section.js";
@@ -18,6 +20,8 @@ editButton.addEventListener("click", (evt) => {
   const popup_Profile = content.querySelector(".popup_profile");
   const popup = new PopupWithForm(popup_Profile, () => {});
   popup.open();
+  formName.value = profile__name.textContent;
+  formSkills.value = profile__skills.textContent;
   popup.setEventListeners();
 });
 
@@ -27,14 +31,6 @@ button__Profile.addEventListener("click", (evt) => {
   popup.open();
   popup.setEventListeners();
 });
-
-// close__Popus.forEach((element) => {
-//   element.addEventListener("click", () => {
-//     const popup_Profile = content.querySelector(".popup");
-//     const popup = new Popup(popup_Profile);
-//     popup.close();
-//   });
-// });
 
 export function handleCardClick(evt) {
   popupWithImage.open(evt);
@@ -60,15 +56,6 @@ export function addCardPrepend(values, evt) {
   this.close();
 }
 
-export function evtmodificarPerfilBtn() {
-  Array.from(content.querySelectorAll(".form__submit"))[0].addEventListener(
-    "click",
-    (evt) => {
-      evt.preventDefault();
-      profile__name.textContent = document.getElementById("form-name").value;
-      profile__skills.textContent =
-        document.getElementById("form-skills").value;
-      closePopup();
-    }
-  );
-}
+popupImageClose.addEventListener("click", (evt) => {
+  evt.target.parentElement.parentElement.classList.remove("hidden");
+});

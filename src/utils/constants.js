@@ -61,3 +61,6 @@ export const popupProfile = content.querySelector(".popup_profile");
 export const popup_Image = content.querySelector(".popup_image");
 export const popupsClose = Array.from(content.querySelectorAll(".form__close"));
 export const popupImageClose = content.querySelector(".popup__close");
+
+export const formName = document.getElementById("form-name");
+export const formSkills = document.getElementById("form-skills");
