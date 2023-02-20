@@ -1,7 +1,9 @@
 import "../index.css";
 import profileSrc from "../images/profile__image.png";
 import profileEditSrc from "../images/editButton.png";
+import headerSrc from "../images/Header.svg";
 import popupClose from "../images/closeIcon.svg";
+import popupImageCloseButton from "../images/closeIcon.svg";
 import { FormValidator } from "../components/FormValidator.js";
 import {
   initialCards,
@@ -11,14 +13,18 @@ import {
   popupProfile,
   profile__Image,
   editButton,
-  delete__Card,
   popupsClose,
+  headerPic,
+  popupImageClose,
 } from "../utils/constants.js";
 import { addCardPrepend, handleCardClick } from "../utils/utils.js";
 import { Card } from "../components/Card.js";
 import { Section } from "../components/Section.js";
-import { PopupWithForm, userInfo, UserInfo } from "../components/Popup.js";
+import { PopupWithForm } from "../components/PopupWithForm";
+import { userInfo } from "../components/UserInfo";
 
+headerPic.src = headerSrc;
+popupImageClose.src = popupImageCloseButton;
 profile__Image.src = profileSrc;
 editButton.src = profileEditSrc;
 popupsClose.forEach((close) => {
