@@ -63,9 +63,6 @@ export function init() {
             avatar: valueInput,
           })
           .then((res) => {
-            console.log(valueInput);
-            console.log(res);
-            console.log(typeof valueInput);
             evt.target.src = valueInput;
           });
         count++;
@@ -79,10 +76,7 @@ export function init() {
 
 export function controllerHearts() {
   setTimeout(() => {
-    api.like().then((res) => {
-      console.log(res);
-      res.some;
-    });
+    api.like().then((res) => {});
   }, 1500);
 }
 
