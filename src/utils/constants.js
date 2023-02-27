@@ -64,3 +64,7 @@ export const popupImageClose = content.querySelector(".popup__close");
 
 export const formName = document.getElementById("form-name");
 export const formSkills = document.getElementById("form-skills");
+
+export const ctdadLikes = document.querySelectorAll(".cards__counters");
+export const popupDelete = document.querySelector(".popup_delete");
+export const popupEditProfile = document.querySelector(".profile__image");

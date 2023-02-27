@@ -14,7 +14,7 @@ export class PopupWithImage extends Popup {
       evt.target.getAttribute("src")
     );
     this._popupSelector.firstElementChild.lastElementChild.textContent =
-      evt.target.nextElementSibling.textContent;
+      evt.target.nextElementSibling.firstElementChild.textContent;
   }
 }
 

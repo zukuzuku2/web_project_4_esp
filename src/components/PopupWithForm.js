@@ -17,6 +17,10 @@ export class PopupWithForm extends Popup {
       .querySelector(".form")
       .addEventListener("submit", (evt) => {
         this._callback(this._getInputValues(), evt);
+        this._popupSelector.querySelector(".form__submit-text").textContent =
+          "Guardando...";
+        debugger;
+        this.close();
       });
 
     this._popupSelector

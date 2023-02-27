@@ -111,12 +111,59 @@
           </form>
           <div class="overlay"></div>
         </div>
+        <div class="popup popup_delete">
+          <form class="form form-delete" novalidate>
+            <img
+              src="./images/closeIcon.svg"
+              alt="Boton para cerrar el modal o popup"
+              class="form__close"
+            />
+            <h5 class="form__title form-delete-text">¿Estás seguro?</h5>
+            <button class="form__submit form-profile" type="submit">
+              <p class="form__submit-text">Si</p>
+            </button>
+          </form>
+          <div class="overlay"></div>
+        </div>
+        <div class="popup popup_edit-profile">
+          <form class="form" novalidate>
+            <img
+              src="./images/closeIcon.svg"
+              alt="Boton para cerrar el modal o popup"
+              class="form__close"
+              id="form-close-refres-profile"
+            />
+            <h5 class="form__title">Cambiar foto de perfil</h5>
+            <div class="form__user-info">
+              <input
+                type="url"
+                placeholder="Inserte url de imagen"
+                class="form__input"
+                id="form-name"
+                minlength="2"
+                maxlength="80"
+                required
+              />
+              <span class="form-name-error form__input-error"
+                >Este campo es obligatorio</span
+              >
+            </div>
+            <button class="form__submit form__edit-profile" type="submit">
+              <p class="form__submit-text">Guardar</p>
+            </button>
+          </form>
+          <div class="overlay"></div>
+        </div>
 
-        <section class="profile">
-          <img alt="Imagen de perfil de usuario" class="profile__image" />
+        <section class="profile" id="profile">
+          <img
+            alt="Imagen de perfil de usuario"
+            class="profile__image"
+            id="profile__image"
+          />
           <div class="profile__info">
             <div class="profile__edit-container">
-              <h2 class="profile__name">José Santos</h2>
+              <h2 class="profile__name" id="profile__name">José Santos</h2>
               <div class="profile__edit">
                 <img
                   alt="Boton para editar los datos del prefil social"
@@ -124,7 +171,7 @@
                 />
               </div>
             </div>
-            <h3 class="profile__skills">Qa Automator</h3>
+            <h3 class="profile__skills" id="profile__skills">Qa Automator</h3>
           </div>
           <div class="button">
             <div class="button__plus"></div>
@@ -146,12 +193,15 @@
               />
               <div class="cards__info-container">
                 <h4 class="cards__title">Lago Louise</h4>
-                <button class="cards__like" type="button" name="Like">
-                  <img
-                    alt="Imagen de reaccion de me gusta de la cards"
-                    class="cards__like-image"
-                  />
-                </button>
+                <div class="cards__like-container">
+                  <button class="cards__like" type="button" name="Like">
+                    <img
+                      alt="Imagen de reaccion de me gusta de la cards"
+                      class="cards__like-image"
+                    />
+                  </button>
+                  <h5 class="cards__counters">7</h5>
+                </div>
               </div>
             </article>
           </template>
