@@ -4,12 +4,12 @@ export class Popup {
   }
 
   open() {
-    this._popupSelector.classList.add("hidden");
+    this._popupSelector.classList.add("show");
     this._handleEscClose();
   }
 
   close() {
-    this._popupSelector.classList.remove("hidden");
+    this._popupSelector.classList.remove("show");
   }
 
   _handleEscClose() {

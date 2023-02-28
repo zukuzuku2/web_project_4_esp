@@ -8,8 +8,6 @@ import {
   profile__skills,
   formName,
   formSkills,
-  ctdadLikes,
-  popupDelete,
   popupEditProfile,
 } from "./constants.js";
 import { Popup } from "../components/Popup.js";
@@ -18,7 +16,7 @@ import { Card } from "../components/Card.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { popupWithImage } from "../components/PopupWithImage.js";
-import { Api } from "../components/Api.js";
+import Api from "../components/Api.js";
 import heartSrc from "../images/heart.svg";
 import blackHeartSrc from "../images/blackHeart.png";
 let count = 0;
@@ -46,7 +44,7 @@ export function init() {
   });
 
   popupImageClose.addEventListener("click", (evt) => {
-    evt.target.parentElement.parentElement.classList.remove("hidden");
+    evt.target.parentElement.parentElement.classList.remove("show");
   });
 
   popupEditProfile.addEventListener("click", (evt) => {
@@ -74,12 +72,6 @@ export function init() {
   });
 }
 
-export function controllerHearts() {
-  setTimeout(() => {
-    api.like().then((res) => {});
-  }, 1500);
-}
-
 export function handleCardClick(evt) {
   popupWithImage.open(evt);
 }
@@ -92,19 +84,27 @@ export function addCardPrepend(values, evt) {
     const data = [
       { name: formTitle, link: formLink, owner: { _id: res._id }, likes: 0 },
     ];
-    api.addCard({ name: formTitle, link: formLink, owner: res.owner });
-    const section = new Section(
-      {
-        items: data,
-        renderer: (item) => {
-          const card = new Card(item, ".card-template", handleCardClick);
-          const completeCard = card.setCompleteCard();
-          section.addItemStart(completeCard);
-        },
-      },
-      elements
-    );
-    section.renderItems();
+    api
+      .addCard({ name: formTitle, link: formLink, owner: res.owner })
+      .then((cardResponse) => {
+        const section = new Section(
+          {
+            items: data,
+            renderer: (item) => {
+              const card = new Card(
+                cardResponse,
+                ".card-template",
+                handleCardClick,
+                res
+              );
+              const completeCard = card.setCompleteCard();
+              section.addItemStart(completeCard);
+            },
+          },
+          elements
+        );
+        section.renderItems();
+      });
+    this.close();
   });
-  this.close();
 }

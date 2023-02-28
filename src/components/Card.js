@@ -3,8 +3,7 @@ import blackHeartSrc from "../images/blackHeart.png";
 import deleteCardSrc from "../images/delete.svg";
 import { PopupWithForm } from "./PopupWithForm";
 import { popupDelete } from "../utils/constants";
-import { Api } from "./Api";
-let marca = 0;
+import Api from "./Api";
 
 const api = new Api({
   token: "590c9c0f-0cfb-43a1-be02-96b36cadf695",
@@ -12,14 +11,16 @@ const api = new Api({
 });
 
 export class Card {
-  constructor(data, selector, callback) {
-    this._data = data;
+  constructor(data, selector, callback, user = {}) {
+    this._user = user;
+    this._cardData = data;
     this.name = data.name;
     this.link = data.link;
     this._id = data.owner._id;
     this._cardId = data._id;
     this.selector = selector;
-    this._callback = callback;
+    this._callbackClick = callback;
+    this._marca = 0;
   }
 
   _getTemplate() {
@@ -28,17 +29,29 @@ export class Card {
       .content.querySelector(".cards")
       .cloneNode(true);
     cardElement.querySelector(".cards__like-image").src = heartSrc;
-    const responseApi = api.getUserInfo().then((res) => {
-      if (this._id === res._id) {
-        cardElement.querySelector(".cards__delete-image").src = deleteCardSrc;
-      } else {
-        const eliminarNode = cardElement.removeChild(
-          cardElement.querySelector(".cards__delete")
-        );
-      }
-    });
+    if (this._id === this._user._id) {
+      cardElement.querySelector(".cards__delete-image").src = deleteCardSrc;
+    } else {
+      cardElement.querySelector(".cards__delete").classList.add("visibility");
+      //    );
+    }
+
+    if (
+      this._cardData.likes.some((owners) => {
+        return owners._id === this._user._id;
+      })
+    ) {
+      cardElement
+        .querySelector(".cards__like-image")
+        .setAttribute("src", blackHeartSrc);
+    } else {
+      cardElement
+        .querySelector(".cards__like-image")
+        .setAttribute("src", heartSrc);
+    }
+
     cardElement.querySelector(".cards__counters").textContent =
-      this._data.likes.length;
+      this._cardData.likes.length;
     return cardElement;
   }
 
@@ -46,19 +59,25 @@ export class Card {
     this.element
       .querySelector(".cards__like-image")
       .addEventListener("click", (evt) => {
-        api.getUserInfo().then((res) => {
-          if (
-            this._data.likes.some(function (owners) {
-              return owners._id === res._id;
-            })
-          ) {
-            evt.target.setAttribute("src", blackHeartSrc);
-          } else {
-            evt.target.setAttribute("src", heartSrc);
-            // evt.target.setAttribute("src", blackHeartSrc);
-          }
+        const hasLike = this._cardData.likes.some((owners) => {
+          return owners._id == this._user._id;
         });
-        // this._eventStatusHeart(evt);
+        console.log(hasLike);
+        if (!hasLike) {
+          evt.target.setAttribute("src", blackHeartSrc);
+          api.updateLike(this._cardData._id).then((cardResponse) => {
+            this._cardData.likes = cardResponse.likes;
+            this.element.querySelector(".cards__counters").textContent =
+              this._cardData.likes.length;
+          });
+        } else {
+          evt.target.setAttribute("src", heartSrc);
+          api.removeLike(this._cardData._id).then((cardResponse) => {
+            this._cardData.likes = cardResponse.likes;
+            this.element.querySelector(".cards__counters").textContent =
+              this._cardData.likes.length;
+          });
+        }
       });
 
     this.element
@@ -67,7 +86,16 @@ export class Card {
         const popup = new PopupWithForm(popupDelete, () => {
           api
             .deleteCards(this._cardId)
-            .then((res) => evt.target.parentElement.parentElement.remove());
+            .then((res) => evt.target.parentElement.parentElement.remove())
+            .finally(() => {
+              Array.from(
+                document.querySelectorAll(".form__submit-text")
+              ).forEach((element) => {
+                element.textContent = "Guardar";
+              });
+              document.querySelector(".form__submit-createText").textContent =
+                "Crear";
+            });
         });
         popup.open();
         popup.setEventListeners();
@@ -76,20 +104,17 @@ export class Card {
     this.element
       .querySelector(".cards__image")
       .addEventListener("click", (evt) => {
-        this._callback(evt);
+        this._callbackClick(evt);
       });
   }
 
   _eventStatusHeart(evt) {
-    // if (owner.id === miID) {
-    this.element.src = blackHeartSrc;
-    // }
-    if (marca === 0) {
+    if (this._marca === 0) {
       evt.target.setAttribute("src", blackHeartSrc);
-      marca = 1;
+      this._marca = 1;
     } else {
       evt.target.setAttribute("src", heartSrc);
-      marca = 0;
+      this._marca = 0;
     }
   }
 

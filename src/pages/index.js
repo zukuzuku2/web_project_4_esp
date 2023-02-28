@@ -26,7 +26,7 @@ import { Card } from "../components/Card.js";
 import { Section } from "../components/Section.js";
 import { PopupWithForm } from "../components/PopupWithForm";
 import { UserInfo } from "../components/UserInfo";
-import { Api } from "../components/Api";
+import Api from "../components/Api";
 headerPic.src = headerSrc;
 popupImageClose.src = popupImageCloseButton;
 profile__Image.src = profileSrc;
@@ -38,21 +38,6 @@ popupsClose.forEach((close) => {
 const api = new Api({
   token: "590c9c0f-0cfb-43a1-be02-96b36cadf695",
   url: "https://around.nomoreparties.co/v1/web_es_cohort_04",
-});
-
-api.getCards().then((cardResult) => {
-  const section = new Section(
-    {
-      items: cardResult,
-      renderer: (item) => {
-        const card = new Card(item, ".card-template", handleCardClick);
-        const completeCard = card.setCompleteCard();
-        section.addItem(completeCard);
-      },
-    },
-    elements
-  );
-  section.renderItems();
 });
 
 api.getUserInfo().then((result) => {
@@ -76,6 +61,26 @@ api.getUserInfo().then((result) => {
       popupWithFormProfile.close();
     }
   );
+
+  api.getCards().then((cardResult) => {
+    const section = new Section(
+      {
+        items: cardResult,
+        renderer: (item) => {
+          const card = new Card(
+            item,
+            ".card-template",
+            handleCardClick,
+            result
+          );
+          const completeCard = card.setCompleteCard();
+          section.addItem(completeCard);
+        },
+      },
+      elements
+    );
+    section.renderItems();
+  });
 });
 
 const popupWithForm = new PopupWithForm(popupAddCard, addCardPrepend);
@@ -84,4 +89,3 @@ const validator = new FormValidator(selectors);
 validator.enableValidation();
 
 init();
-controllerHearts();

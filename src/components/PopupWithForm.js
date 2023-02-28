@@ -19,7 +19,6 @@ export class PopupWithForm extends Popup {
         this._callback(this._getInputValues(), evt);
         this._popupSelector.querySelector(".form__submit-text").textContent =
           "Guardando...";
-        debugger;
         this.close();
       });
 

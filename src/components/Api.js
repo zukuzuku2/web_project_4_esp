@@ -1,137 +1,101 @@
-export class Api {
-  constructor(option) {
+export default class Api {
+  constructor(option = {}) {
     this._option = option;
+    this._header = new Headers();
+    this._header.append("Authorization", this._option.token);
+    this._header.append("Content-Type", "application/json");
   }
 
-  getCards() {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    let requestOptions = {
-      method: "GET",
-      headers: header,
-      //   redirect: "follow",
-    };
-
-    return fetch(`${this._option.url}/cards`, requestOptions).then((response) =>
-      response.json()
-    );
-  }
-
-  deleteCards(id) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    header.append("Content-Type", "application/json");
-    let requestOptions = {
-      method: "DELETE",
-      headers: header,
-    };
-    return fetch(`${this._option.url}/cards/${id}`, requestOptions).then(
+  fetchData(url, requestOptions) {
+    return fetch(`${this._option.url}/${url}`, requestOptions).then(
       (response) => {
-        response.json();
+        return response.json(this._option.url, url);
       }
     );
   }
 
+  getCards() {
+    const requestOptions = {
+      method: "GET",
+      headers: this._header,
+    };
+
+    return this.fetchData("cards", requestOptions);
+  }
+
+  deleteCards(id) {
+    const requestOptions = {
+      method: "DELETE",
+      headers: this._header,
+    };
+    return this.fetchData(`/cards/${id}`, requestOptions);
+  }
+
   addCard(options) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    header.append("Content-Type", "application/json");
-    let requestOptions = {
+    const requestOptions = {
       method: "POST",
-      headers: header,
+      headers: this._header,
       body: JSON.stringify({
         name: options.name,
         link: options.link,
       }),
     };
-    fetch(`${this._option.url}/cards`, requestOptions).then((response) =>
-      response.json()
-    );
+    return this.fetchData("cards", requestOptions);
   }
 
   like() {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    let requestOptions = {
+    const requestOptions = {
       method: "GET",
-      headers: header,
+      headers: this._header,
     };
-    return fetch(`${this._option.url}/cards`, requestOptions).then((response) =>
-      response.json()
-    );
+    return this.fetchData("cards", requestOptions);
   }
 
   updateLike(cardId) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    let requestOptions = {
+    const requestOptions = {
       method: "PUT",
-      headers: header,
+      headers: this._header,
     };
-    return fetch(
-      `${this._option.url}/cards/likes/${cardId}`,
-      requestOptions
-    ).then((response) => response.json());
+    return this.fetchData(`cards/likes/${cardId}`, requestOptions);
   }
 
   removeLike(cardId) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    let requestOptions = {
+    const requestOptions = {
       method: "DELETE",
-      headers: header,
+      headers: this._header,
     };
-    return fetch(
-      `${this._option.url}/cards/likes/${cardId}`,
-      requestOptions
-    ).then((response) => response.json());
+    return this.fetchData(`cards/likes/${cardId}`, requestOptions);
   }
 
   getUserInfo() {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    let requestOptions = {
+    const requestOptions = {
       method: "GET",
-      headers: header,
+      headers: this._header,
     };
-    return fetch(`${this._option.url}/users/me`, requestOptions).then(
-      (response) => response.json()
-    );
+    return this.fetchData(`users/me`, requestOptions);
   }
 
   updateUserInfo(options) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    header.append("Content-Type", "application/json");
-    let requestOptions = {
+    const requestOptions = {
       method: "PATCH",
-      headers: header,
+      headers: this._header,
       body: JSON.stringify({
         name: options.name,
         about: options.about,
         avatar: options.avatar,
       }),
     };
-    fetch(`${this._option.url}/users/me`, requestOptions).then((response) =>
-      response.json()
-    );
+    return this.fetchData(`users/me`, requestOptions);
   }
 
   updateProfilePhoto(options) {
-    let header = new Headers();
-    header.append("Authorization", this._option.token);
-    header.append("Content-Type", "application/json");
-    let requestOptions = {
+    const requestOptions = {
       method: "PATCH",
-      headers: header,
+      headers: this._header,
       body: JSON.stringify({
         avatar: options.avatar,
       }),
     };
-    return fetch(`${this._option.url}/users/me/avatar`, requestOptions)
-      .then((response) => response.json())
-      .catch((err) => {
-        console.log(err);
-      });
+    return this.fetchData(`users/me/avatar`, requestOptions);
   }
 }
