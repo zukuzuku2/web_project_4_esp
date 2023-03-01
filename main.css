@@ -417,6 +417,10 @@ template {
   align-items: center;
 }
 
+.visibility {
+  display: none;
+}
+
 .header {
   padding-top: 28px;
   width: 320px;
@@ -494,6 +498,12 @@ template {
   width: 120px;
   height: 120px;
   border-radius: 70px;
+  z-index: 1;
+}
+
+.profile__image:hover {
+  background-image: url(bbf66eb7b81dccb49b10.png);
+  opacity: 0.5;
 }
 
 .profile__edit {
@@ -724,6 +734,15 @@ template {
   pointer-events: none;
 }
 
+.form-delete {
+  width: 430px;
+  height: 181px;
+}
+
+.form-delete-text {
+  padding-bottom: 38px;
+}
+
 .popup {
   width: 100%;
   height: 100%;
@@ -802,7 +821,7 @@ template {
   z-index: 1;
 }
 
-.hidden {
+.show {
   visibility: visible;
   opacity: 1;
 }
@@ -885,6 +904,15 @@ template {
 .cards__like-image {
   width: 21px;
   height: 19px;
+}
+
+.card__like-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards__counters {
+  text-align: center;
 }
 
 .cards__title {
